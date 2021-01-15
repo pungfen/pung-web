@@ -1,8 +1,8 @@
 FROM node:10
 COPY ./ /app
 WORKDIR /app
-RUN npm install --prefer-offline --no-audit && npm run build
-# RUN npm install && npm run build
+# RUN npm install --prefer-offline --no-audit && npm run build
+RUN npm install && npm run build
 
 # FROM nginx
 RUN mkdir /app
