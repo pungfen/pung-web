@@ -4,7 +4,7 @@ WORKDIR /app
 RUN npm install --prefer-offline --no-audit && npm run build
 # RUN npm install && npm run build
 
-# FROM nginx
+FROM nginx
 RUN mkdir /app
 COPY --from=0 /app/dist /app
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
