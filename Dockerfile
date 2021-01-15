@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:latest
 COPY ./ /app
 WORKDIR /app
 # RUN npm install --prefer-offline --no-audit && npm run build
