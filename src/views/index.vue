@@ -1,5 +1,6 @@
 <template>
   <h1>欢迎来到pung-web-vite</h1>
+  <h1>欢迎来到pung-web-vite</h1>
 </template>
 
 <script>
