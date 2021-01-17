@@ -8,7 +8,6 @@
     "lint-fix": "eslint --fix ./client/src --ext .vue,.js,.ts"
   },
   "dependencies": {
-    "ant-design-vue": "^2.0.0-rc.8",
     "axios": "^0.21.1",
     "koa": "^2.13.1",
     "koa-router": "^10.0.0",
