@@ -1,4 +1,5 @@
 import * as Koa from 'koa'
+import * as bodyParser from 'koa-bodyparser'
 
 import { routes } from './router'
 import { config } from './config'
@@ -11,6 +12,7 @@ export const start = () => {
       const app = new Koa()
       const port = config.port
 
+      app.use(bodyParser())
       app.use(routes)
       app.listen(port, resolve)
     } catch (err) {

@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动程序",
+      "program": "${workspaceFolder}/server/app.ts",
+      "runtimeExecutable": "nodemon",
+      "restart": true,
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "${workspaceRoot}/node_modules/**/*.js",
+        "<node_internals>/**/*.js"
+      ]
+    }
+  ]
+}

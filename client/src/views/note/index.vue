@@ -20,16 +20,16 @@ export default defineComponent({
 
   created() {
     // console.log(ajax)
-    const { uuid } = this.$route.query
-    axios({
-      method: 'get',
-      url: '/note',
-      data: {
-        uuid,
-      },
-    }).then((res) => {
-      console.log(res)
-    })
+    // const { uuid } = this.$route.query
+    // axios({
+    //   method: 'get',
+    //   url: '/note',
+    //   data: {
+    //     uuid,
+    //   },
+    // }).then((res) => {
+    //   console.log(res)
+    // })
   },
 })
 </script>
