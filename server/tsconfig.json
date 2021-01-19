@@ -11,12 +11,12 @@
         "strict": true,
         "noImplicitAny": false,
         "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true,
-        "include": [
-            "./**/*"
-        ],
-        "exclude": [
-            "**/node_modules"
-        ]
-    }
+        "skipLibCheck": true
+    },
+    "include": [
+        "./**/*"
+    ],
+    "exclude": [
+        "**/node_modules"
+    ]
 }

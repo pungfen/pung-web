@@ -1,16 +1,20 @@
 import * as Router from 'koa-router'
 
-import * as Nedb from 'nedb-promise'
+const nedb = require('../lib/nedb')
 
 const DB = {
-  user: new Nedb({ filename: 'data/user.db', autoload: true, timestampData: true })
+  user: nedb({
+    filename: 'data/user.db',
+    autoload: true,
+    timestampData: true,
+  }),
 }
 
 const router = new Router()
 
 router
   .get('/user', async (ctx) => {
-    ctx.body = await DB.user.find({ })
+    ctx.body = await DB.user.find({})
   })
   .post('/user', async (ctx) => {
     const { uuid } = ctx.request.body

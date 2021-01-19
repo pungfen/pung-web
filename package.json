@@ -14,7 +14,6 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "nedb": "^1.8.0",
-    "nedb-promise": "^2.0.1",
     "vue": "^3.0.5",
     "vue-router": "4"
   },
