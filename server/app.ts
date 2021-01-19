@@ -21,6 +21,8 @@ export const start = () => {
   })
 }
 
+// 哈哈
+
 start().catch((e) => {
   console.error(e)
   process.exit(-1)
