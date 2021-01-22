@@ -1,6 +1,6 @@
 import * as Nedb from 'nedb'
 
-var thenify = require('thenify')
+import * as thenify from 'thenify'
 
 function dbInstance(newNedb) {
   const newDB = { newNedb }
