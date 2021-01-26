@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite serve client",
     "build": "vuedx-typecheck client && vite build client",
-    "server:watch": "ts-node-dev --transpile-only --no-notify ./server/app.ts",
+    "server:watch": "ts-node-dev --transpile-only --no-notify server/app.ts",
     "lint-fix": "eslint --fix client/src --ext .vue,.js,.ts"
   },
   "dependencies": {
@@ -31,7 +31,6 @@
     "@vuedx/typescript-plugin-vue": "^0.4.1",
     "autoprefixer": "^10.2.3",
     "eslint": "^7.17.0",
-    "eslint-config-koa": "^2.0.2",
     "eslint-plugin-vue": "^7.4.1",
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2",

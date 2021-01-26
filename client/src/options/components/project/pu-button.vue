@@ -1,11 +1,14 @@
 <template>
   <button
     :class="[
-    'p-2',
-    'rounded-md',
-    'bg-blue-600',
-    'text-white',
-    'font-medium'
+      'py-1', 'px-4',
+      'bg-green-600',
+      'text-white',
+      'font-semibold',
+      'rounded-lg',
+      'shadow-md',
+      'hover:bg-green-700',
+      'focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75'
   ]"
     type="button"
     @click="handleClick"
