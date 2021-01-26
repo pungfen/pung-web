@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'pu-table-column',
 
   props: {
-    label: String,
-  },
+    label: String
+  }
 })
 </script>

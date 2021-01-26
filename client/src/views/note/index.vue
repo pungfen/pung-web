@@ -13,8 +13,8 @@ export default defineComponent({
     return {
       note: {
         data: [],
-        msg: '笔记',
-      },
+        msg: '笔记'
+      }
     }
   },
 
@@ -30,7 +30,7 @@ export default defineComponent({
     // }).then((res) => {
     //   console.log(res)
     // })
-  },
+  }
 })
 </script>
 

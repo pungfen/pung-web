@@ -7,7 +7,7 @@ export default defineComponent({
   name: 'pu-table',
 
   props: {
-    data: Array,
+    data: Array
   },
 
   render() {
@@ -17,7 +17,7 @@ export default defineComponent({
         h(
           'table',
           {
-            class: 'table-auto',
+            class: 'table-auto'
           },
           [
             h('thead', [
@@ -27,21 +27,21 @@ export default defineComponent({
                   h(
                     'th',
                     {
-                      class: 'px-4 py-2 text-emerald-600',
+                      class: 'px-4 py-2 text-emerald-600'
                     },
-                    '111',
-                  ),
-                ),
-              ),
-            ]),
-          ],
-        ),
+                    '111'
+                  )
+                )
+              )
+            ])
+          ]
+        )
       ])
     } else {
       return h('div', { class: 'w-full flex justify-around mt-10' }, [
-        h('span', '暂无数据'),
+        h('span', '暂无数据')
       ])
     }
-  },
+  }
 })
 </script>

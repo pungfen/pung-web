@@ -20,12 +20,12 @@ export default defineComponent({
       table: {
         data: [
           {
-            uuid: '111',
-          },
-        ],
-      },
+            uuid: '111'
+          }
+        ]
+      }
     }
-  },
+  }
 })
 </script>
 

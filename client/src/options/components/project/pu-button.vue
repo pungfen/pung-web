@@ -26,7 +26,7 @@ export default {
   methods: {
     handleClick() {
       this.$emit('click', evt)
-    },
-  },
+    }
+  }
 }
 </script>
