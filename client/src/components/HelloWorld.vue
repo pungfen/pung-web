@@ -2,11 +2,7 @@
   <h1>{{ msg }}</h1>
 
   <p>
-    <a
-      href="https://vitejs.dev/guide/features.html"
-      target="_blank"
-    >Vite Documentation</a>
-    |
+    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Documentation</a> |
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
   </p>
 
@@ -29,8 +25,8 @@
     <a
       href="https://github.com/znck/vue-developer-experience"
       target="_blank"
-    >@vuedx</a>. <br>Note @vuedx is still experimental and this setup is provided for
-    early feedback.
+    >@vuedx</a>.
+    <br />Note @vuedx is still experimental and this setup is provided for early feedback.
   </p>
   <button @click="count++">count is: {{ count }}</button>
   <p>
@@ -47,13 +43,13 @@ export default defineComponent({
   props: {
     msg: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   setup: () => {
     const count = ref(0)
     return { count }
-  },
+  }
 })
 </script>
 

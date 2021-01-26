@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/index.vue'),
+    component: () => import('../views/home.vue'),
   },
   {
     path: '/about',
@@ -16,11 +16,20 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Note',
     component: () => import('../views/note/index.vue'),
   },
+  {
+    path: '/admin',
+    name: 'Admin',
+    children: [
+      {
+        path: '/note',
+        name: 'Note',
+        component: () => import('../views/note/index.vue'),
+      },
+    ],
+  },
 ]
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })
-
-export default router
