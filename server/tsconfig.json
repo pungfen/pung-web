@@ -1,22 +1,17 @@
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "module": "commonjs",
-        "lib": [
-            "ES2015"
-        ],
-        "allowJs": true,
-        "sourceMap": true,
-        "outDir": "../../",
-        "strict": true,
-        "noImplicitAny": false,
-        "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true
-    },
-    "include": [
-        "./**/*"
-    ],
-    "exclude": [
-        "**/node_modules"
-    ]
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

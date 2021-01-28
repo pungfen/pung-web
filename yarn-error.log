@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add eslint-plugin-standard -D
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add reflect-metadata
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;%MAVEN_HOME%\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pung\AppData\Local\Microsoft\WindowsApps;C:\Users\pung\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\pung\AppData\Roaming\npm;C:\Users\pung\AppData\Local\Yarn\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\bin;;C:\Users\pung\AppData\Roaming\nvm;C:\Program Files\nodejs;
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;%MAVEN_HOME%\bin;C:\Users\pung\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pung\AppData\Local\Microsoft\WindowsApps;C:\Users\pung\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\pung\AppData\Roaming\npm;C:\Users\pung\AppData\Local\Yarn\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\bin;;C:\Users\pung\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\code\flutter\bin;
 
 Yarn version: 
   1.22.5
 
 Node version: 
-  14.15.0
+  12.17.0
 
 Platform: 
   win32 x64
@@ -23,7 +23,7 @@ npm manifest:
     "scripts": {
       "dev": "vite serve client",
       "build": "vuedx-typecheck client && vite build client",
-      "server:watch": "ts-node-dev --transpile-only --no-notify ./server/app.ts",
+      "server:watch": "ts-node-dev --transpile-only --no-notify server/app.ts",
       "lint-fix": "eslint --fix client/src --ext .vue,.js,.ts"
     },
     "dependencies": {
@@ -50,7 +50,6 @@ npm manifest:
       "@vuedx/typescript-plugin-vue": "^0.4.1",
       "autoprefixer": "^10.2.3",
       "eslint": "^7.17.0",
-      "eslint-config-koa": "^2.0.2",
       "eslint-plugin-vue": "^7.4.1",
       "postcss": "^8.2.4",
       "tailwindcss": "^2.0.2",
@@ -2711,11 +2710,6 @@ Lockfile:
     version "3.0.3"
     resolved "https://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
     integrity sha1-oUEMLt2PB3sItOJTyOrPyvBXRhw=
-  
-  simple-icons@^4.8.0:
-    version "4.8.0"
-    resolved "https://registry.npm.taobao.org/simple-icons/download/simple-icons-4.8.0.tgz#98bec1c2595dd07d71e72f94afdb9470b7a55592"
-    integrity sha1-mL7Bwlld0H1x5y+Ur9uUcLelVZI=
   
   simple-swizzle@^0.2.2:
     version "0.2.2"

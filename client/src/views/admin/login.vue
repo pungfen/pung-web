@@ -54,6 +54,7 @@ export default defineComponent({
       this.$refs.form.validate(
         valid => {
           if (!valid) return
+          debugger
           this.$ajax.post({ url: '/login', data: this.form.data }).then(
             res => {
               console.log(res)

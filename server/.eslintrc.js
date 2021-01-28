@@ -3,4 +3,7 @@ module.exports = {
     node: true,
   },
   extends: 'koa',
+  rules: {
+    "comma-dangle": ["error", "never"]
+  }
 }
