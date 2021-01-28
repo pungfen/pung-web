@@ -1241,11 +1241,6 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-koa@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.npm.taobao.org/eslint-config-koa/download/eslint-config-koa-2.0.2.tgz#6070477aed6981c7e7a567a65de16733b9c447bf"
-  integrity sha1-YHBHeu1pgcfnpWemXeFnM7nER78=
-
 eslint-plugin-vue@^7.4.1:
   version "7.4.1"
   resolved "https://registry.npm.taobao.org/eslint-plugin-vue/download/eslint-plugin-vue-7.4.1.tgz?cache=0&sync_timestamp=1609808547859&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-vue%2Fdownload%2Feslint-plugin-vue-7.4.1.tgz#2526ef0c010c218824a89423dbe6ddbe76f04fd6"
