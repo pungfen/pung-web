@@ -1,6 +1,6 @@
 import { prefix, get } from '../lib/reflect'
 
-import data from '../mock/user'
+import data from '../src/mock/user'
 
 @prefix('/user')
 export default class User {
@@ -8,7 +8,7 @@ export default class User {
   get() {
     return {
       code: 200,
-      data,
+      data
     }
   }
 }

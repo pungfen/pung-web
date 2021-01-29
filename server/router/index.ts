@@ -6,14 +6,14 @@ const DB = {
   user: nedb({
     filename: 'data/user.db',
     autoload: true,
-    timestampData: true,
+    timestampData: true
   }),
 
   note: nedb({
     filename: 'data/note.db',
     autoload: true,
-    timestampData: true,
-  }),
+    timestampData: true
+  })
 }
 
 const router = new Router()

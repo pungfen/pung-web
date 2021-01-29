@@ -1,9 +1,9 @@
 module.exports = {
   env: {
-    node: true,
+    node: true
   },
   extends: 'koa',
   rules: {
-    "comma-dangle": ["error", "never"]
+    'comma-dangle': ['error', 'never']
   }
-}
+};

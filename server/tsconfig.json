@@ -10,7 +10,8 @@
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
