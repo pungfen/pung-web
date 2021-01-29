@@ -5,6 +5,8 @@ import * as bodyparser from 'koa-bodyparser'
 import { config } from './config'
 import { router, routes } from './router'
 
+import { koaResponse } from './middleware/koa-response'
+
 const start = () => {
   return new Promise<void>(async (resolve, reject) => {
     try {
@@ -20,6 +22,7 @@ const start = () => {
           }
         })
       )
+      app.use(koaResponse())
       app.use(routes)
       app.use(router.allowedMethods())
 

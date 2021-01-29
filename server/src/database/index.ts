@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize'
+import { Sequelize, DataTypes, Utils, DataTypeAbstract } from 'sequelize'
 
 import { config } from '../config'
 

@@ -1,11 +1,12 @@
 import { DefaultState, Context } from 'koa'
 import * as Router from 'koa-router'
-import KoaSwagger from 'koa2-swagger-ui'
+// import KoaSwagger from 'koa2-swagger-ui'
 
 import * as fs from 'fs'
 import * as path from 'path'
 
 import { BASE_PATH_MAP, ROUTER_MAP } from '../util/const'
+import { Console } from 'console'
 
 type RouteMeta = {
   name: string
@@ -22,7 +23,7 @@ type PathMeta = {
 export const router = new Router<DefaultState, Context>()
 
 router
-  .use(KoaSwagger({ swaggerOptions: { spec } }))
+  // .use(KoaSwagger({ swaggerOptions: { spec } }))
   .prefix('/api')
 
   .get('/text-connect', (ctx) => {
@@ -37,8 +38,8 @@ fs.readdirSync(controllerPath).forEach((name) => {
 })
 
 modules.forEach((m) => {
-  const routerMap: RouteMeta[] = Reflect.getMetadata(ROUTER_MAP, m, 'method') || []
-  const basePathMap: PathMeta[] = Reflect.getMetadata(BASE_PATH_MAP, m) || []
+  const routerMap: RouteMeta[] = Reflect['getMetadata'](ROUTER_MAP, m, 'method') || []
+  const basePathMap: PathMeta[] = Reflect['getMetadata'](BASE_PATH_MAP, m) || []
   const basePath = basePathMap.pop() // @prefix('user')
   if (routerMap.length) {
     const ctr = new m()

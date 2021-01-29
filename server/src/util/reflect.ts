@@ -12,7 +12,7 @@ function methodDecorator(method: string) {
   return function httpMethodDecorator(path: string) {
     return (proto: any, name: string) => {
       const target = proto.constructor
-      const routeMap = Reflect.getMetadata(ROUTER_MAP, target, 'method') || []
+      const routeMap = Reflect['getMetadata'](ROUTER_MAP, target, 'method') || []
       routeMap.push({ name, method, path })
       Reflect.defineMetadata(ROUTER_MAP, routeMap, target, 'method')
     }
@@ -28,7 +28,7 @@ function controllerDecorator() {
   return function httpMethodDecorator(basePath: string): ClassDecorator {
     return (proto: any) => {
       const target = proto
-      const pathMap = Reflect.getMetadata(BASE_PATH_MAP, target) || []
+      const pathMap = Reflect['getMetadata'](BASE_PATH_MAP, target) || []
       pathMap.push({ path: basePath })
       Reflect.defineMetadata(BASE_PATH_MAP, pathMap, target)
     }
@@ -37,6 +37,7 @@ function controllerDecorator() {
 
 export const Controller = controllerDecorator()
 
-export const get = methodDecorator('get')
-export const post = methodDecorator('post')
-export const put = methodDecorator('put')
+export const GET = methodDecorator('get')
+export const POST = methodDecorator('post')
+export const PUT = methodDecorator('put')
+export const DELETE = methodDecorator('delete')
