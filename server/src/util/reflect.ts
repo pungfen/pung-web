@@ -20,11 +20,11 @@ function methodDecorator(method: string) {
 }
 
 /**
- * @desc 创建类路径装饰器
+ * @desc 创建Controller装饰器
  * @param className 装饰器接受路由 path 作为参数
  * @return Decorator - 装饰器
  */
-function classDecorator() {
+function controllerDecorator() {
   return function httpMethodDecorator(basePath: string): ClassDecorator {
     return (proto: any) => {
       const target = proto
@@ -35,7 +35,7 @@ function classDecorator() {
   }
 }
 
-export const prefix = classDecorator()
+export const Controller = controllerDecorator()
 
 export const get = methodDecorator('get')
 export const post = methodDecorator('post')

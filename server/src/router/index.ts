@@ -1,5 +1,6 @@
 import { DefaultState, Context } from 'koa'
 import * as Router from 'koa-router'
+import KoaSwagger from 'koa2-swagger-ui'
 
 import * as fs from 'fs'
 import * as path from 'path'
@@ -21,6 +22,7 @@ type PathMeta = {
 export const router = new Router<DefaultState, Context>()
 
 router
+  .use(KoaSwagger({ swaggerOptions: { spec } }))
   .prefix('/api')
 
   .get('/text-connect', (ctx) => {
@@ -44,7 +46,6 @@ modules.forEach((m) => {
       route.path = route.path
       const { name, method, path } = route
       const strPath = basePath ? `${basePath.path}/${path}` : path
-      console.log(strPath)
       const url =
         '/' +
         strPath
