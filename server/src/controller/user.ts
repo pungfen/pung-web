@@ -1,7 +1,6 @@
-import { Model, Optional, DataTypes } from 'sequelize'
+import { Model, DataTypes } from 'sequelize'
 
 import sequelize from '../database'
-import lookup from '../lookup'
 
 import { Controller, GET, POST, DELETE } from '../util/reflect'
 
@@ -36,7 +35,7 @@ const UserModel = sequelize.define<UserInstance>('User', {
 
 UserModel.sync()
 
-UserModel.addScope('unDeletedUsers', {
+UserModel.addScope('unDeleted', {
   where: {
     isdeleted: 0
   }
@@ -50,7 +49,7 @@ export default class User {
   async get(ctx: any) {
     const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
     console.log(pageSize)
-    const result = await UserModel.scope('unDeletedUsers').findAndCountAll({
+    const result = await UserModel.scope('unDeleted').findAndCountAll({
       attributes,
       limit: pageSize,
       offset: pageSize * (pageCurrent - 1)
