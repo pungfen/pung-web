@@ -22,6 +22,13 @@ const start = () => {
           }
         })
       )
+      app.use(async (ctx, next) => {
+        if (ctx.request.path === '/') {
+          ctx.response.status = 200
+          ctx.response.body = ''
+        }
+        await next()
+      })
       app.use(koaResponse())
       app.use(routes)
       app.use(router.allowedMethods())

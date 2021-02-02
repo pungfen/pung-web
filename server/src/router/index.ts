@@ -6,7 +6,6 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 import { BASE_PATH_MAP, ROUTER_MAP } from '../util/const'
-import { Console } from 'console'
 
 type RouteMeta = {
   name: string

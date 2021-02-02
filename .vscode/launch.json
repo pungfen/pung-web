@@ -3,7 +3,7 @@
     {
       "type": "edge",
       "request": "launch",
-      "name": "vuejs: edge",
+      "name": "pung-web",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/client/src",
       "breakOnLoad": true,
@@ -19,11 +19,7 @@
       "runtimeExecutable": "nodemon",
       "restart": true,
       // "console": "integratedTerminal",
-      "skipFiles": [
-        "${workspaceRoot}/node_modules/**/*.js",
-        "<node_internals>/**/*.js",
-        "${workspaceRoot}/server/src/controller/user.ts",
-      ]
+      "skipFiles": ["${workspaceRoot}/node_modules/**/*.js", "<node_internals>/**/*.js", "${workspaceRoot}/server/src/controller/user.ts"]
     }
   ]
 }

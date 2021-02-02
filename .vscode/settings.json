@@ -1,11 +1,7 @@
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "vue"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "vetur.validation.template": false,
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.js": "vscode-typescript",
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.formatOnSave": true,

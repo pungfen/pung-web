@@ -48,7 +48,6 @@ export default class User {
   @GET('/')
   async get(ctx: any) {
     const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
-    console.log(pageSize)
     const result = await UserModel.scope('unDeleted').findAndCountAll({
       attributes,
       limit: pageSize,
