@@ -12,7 +12,7 @@ interface UserInstance extends Model {
   isdeleted: string
 }
 
-const UserModel = sequelize.define<UserInstance>('User', {
+export const UserModel = sequelize.define<UserInstance>('User', {
   id: {
     primaryKey: true,
     type: DataTypes.INTEGER.UNSIGNED,

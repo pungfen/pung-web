@@ -4,7 +4,7 @@
       "type": "edge",
       "request": "launch",
       "name": "pung-web",
-      "url": "http://localhost:3000",
+      "url": "http://localhost:8088",
       "webRoot": "${workspaceFolder}/client/src",
       "breakOnLoad": true,
       "sourceMapPathOverrides": {

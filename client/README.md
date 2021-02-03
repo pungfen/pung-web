@@ -1,4 +1,4 @@
-# demo
+# client
 
 ## Project setup
 ```

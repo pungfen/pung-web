@@ -1,9 +1,8 @@
 module.exports = {
-  env: {
-    node: true
-  },
   extends: [
-    'plugin:vue/vue3-essential'
+    'plugin:vue/vue3-essential',
+    'prettier',
+    'prettier/vue'
   ],
   parserOptions: {
     ecmaVersion: 2020

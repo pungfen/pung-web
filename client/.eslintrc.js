@@ -1,13 +1,14 @@
 module.exports = {
-  extends: [
-    'plugin:vue/vue3-essential',
-    'prettier',
-    'prettier/vue'
-  ],
+  root: true,
+  env: {
+    node: true
+  },
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/prettier'],
   parserOptions: {
-    ecmaVersion: 2020
+    parser: 'babel-eslint'
   },
   rules: {
-    "comma-dangle": ["error", "never"]
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   }
 }
