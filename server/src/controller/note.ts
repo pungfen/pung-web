@@ -2,16 +2,14 @@ import { Model, DataTypes } from 'sequelize'
 
 import sequelize from '../database'
 
-import User, { UserModel } from './user'
-
 import { Controller, GET, POST, PUT, DELETE } from '../util/reflect'
-
 interface NoteInstance extends Model {
   id: number
   title: string
   content: string
   category: string
   isdeleted: string
+  user: any
 }
 
 const NoteModel = sequelize.define<NoteInstance>('Note', {
@@ -35,15 +33,18 @@ const NoteModel = sequelize.define<NoteInstance>('Note', {
   }
 })
 
-NoteModel.belongsTo(UserModel, { foreignKey: 'userId' })
+// NoteModel.belongsTo(UserModel, { foreignKey: 'userId' })
 
-NoteModel.sync()
+// NoteModel.sync()
 
 NoteModel.addScope('unDeleted', {
   where: {
     isdeleted: 0
   }
 })
+
+console.log(sequelize.models)
+// NoteModel.belongsTo(sequelize.models.User)
 
 const attributes = ['id', 'title', 'content', 'category']
 
@@ -55,11 +56,7 @@ export default class Note {
     const result = await NoteModel.scope('unDeleted').findAndCountAll({
       attributes,
       limit: pageSize,
-      offset: pageSize * (pageCurrent - 1),
-      include: {
-        model: UserModel,
-        as: 'user'
-      }
+      offset: pageSize * (pageCurrent - 1)
     })
     const { rows, count } = result
     return { data: rows, meta: { count, pageCurrent, pageSize } }

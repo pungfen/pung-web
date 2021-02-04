@@ -33,7 +33,7 @@ export const UserModel = sequelize.define<UserInstance>('User', {
   }
 })
 
-UserModel.sync()
+// UserModel.sync()
 
 UserModel.addScope('unDeleted', {
   where: {

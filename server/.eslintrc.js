@@ -4,6 +4,8 @@ module.exports = {
   },
   extends: 'koa',
   rules: {
-    'comma-dangle': ['error', 'never']
+    'comma-dangle': ['error', 'never'],
+    semi: [0],
+    'arrow-parens': [0]
   }
-};
+}
