@@ -1,4 +1,4 @@
-import Note from '../database/models/note'
+import Note from '../model/note'
 
 export const controller = {
   Note: {
