@@ -7,8 +7,8 @@ import { router, routes } from './router'
 
 import { koaResponse } from './middleware/koa-response'
 
-const start = () => {
-  return new Promise<void>(async (resolve, reject) => {
+const start = () =>
+  new Promise<void>(async (resolve, reject) => {
     try {
       console.info('--- start ---')
 
@@ -18,7 +18,7 @@ const start = () => {
       app.use(
         bodyparser({
           onerror: (err, ctx) => {
-            ctx.throw('body parser error：' + err, 422)
+            ctx.throw(`body parser error：${err}`, 422)
           }
         })
       )
@@ -38,9 +38,12 @@ const start = () => {
       reject(err)
     }
   })
-}
 
-start().catch((e) => {
-  console.log(e)
-  process.exit(-1)
-})
+start()
+  .then(() => {
+    console.log(`pung-web-server start success, listening on http://localhost:${config.port}`)
+  })
+  .catch((e) => {
+    console.log(e)
+    process.exit(-1)
+  })

@@ -1,15 +1,6 @@
-import { Context, Next } from 'koa'
+import { Response, MiddleWare } from '../@types/types'
 
 import { isPlainObject } from '../util/shared'
-
-export type Response = {
-  message?: string
-  data?: any
-  meta?: any
-  err?: any
-}
-
-type MiddleWare = (...arg: any[]) => (ctx: Context, next?: Next) => Promise<void>
 
 export const koaResponse: MiddleWare = () => async (ctx, next) => {
   const result: Response = {}

@@ -19,7 +19,7 @@
       "runtimeExecutable": "nodemon",
       "restart": true,
       // "console": "integratedTerminal",
-      "skipFiles": ["${workspaceRoot}/node_modules/**/*.js", "<node_internals>/**/*.js", "${workspaceRoot}/server/src/controller/user.ts"]
+      "skipFiles": ["${workspaceRoot}/node_modules/**/*.js", "<node_internals>/**/*.js"]
     }
   ]
 }
