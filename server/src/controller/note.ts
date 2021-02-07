@@ -23,38 +23,83 @@ export const NoteModel = sequelize.define<NoteInstance>('Note', {
   }
 })
 
-NoteModel.belongsTo(UserModel, { foreignKey: { allowNull: false } })
+NoteModel.belongsTo(UserModel, { as: 'user', foreignKey: { allowNull: false } })
 
+// UserModel.sync({ force: true })
 // NoteModel.sync({ force: true })
 
-const attributes = ['id', 'title', 'content']
+const attributes = ['id', 'title', 'content', 'createdAt', 'updatedAt']
 export default class Note {
   async get(ctx: any) {
-    const { pageSize = 20, pageCurrent = 1, uuid } = ctx.request.body
+    const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
     const result = await NoteModel.findAndCountAll({
       attributes,
       limit: pageSize,
-      offset: pageSize * (pageCurrent - 1)
+      offset: pageSize * (pageCurrent - 1),
+      include: {
+        model: UserModel,
+        as: 'user',
+        attributes: ['id', 'name', 'uuid']
+      }
     })
     const { rows, count } = result
     return { data: rows, meta: { count, pageCurrent, pageSize } }
   }
 
-  async post(ctx: any) {
-    let data = await NoteModel.create(ctx.request.body)
+  async getUuid(ctx: any) {
+    const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
+    const { uuid } = ctx.request.params
+    const [user, created] = await UserModel.findOrCreate({
+      where: { uuid },
+      defaults: { uuid }
+    })
+    let result: any = { rows: [], count: 0 }
+    if (!created) {
+      result = await NoteModel.findAndCountAll({
+        limit: pageSize,
+        offset: pageSize * (pageCurrent - 1),
+        where: {
+          userId: user.id
+        },
+        include: {
+          model: UserModel,
+          as: 'user',
+          attributes: ['id', 'name', 'uuid']
+        },
+        attributes
+      })
+    }
+    const { rows, count } = result
+    return { data: rows, meta: { count, pageCurrent, pageSize } }
+  }
+
+  async postUuid(ctx: any) {
+    const { data } = ctx.request.body
+    const { uuid } = ctx.request.params
+    const [user, created] = await UserModel.findOrCreate({
+      where: { uuid },
+      defaults: { uuid }
+    })
+    let result: any = []
+    let state = data.map((item: any) => {
+      item.userId = user.id
+      return item
+    })
+    if (!created) result = await NoteModel.bulkCreate(state)
     return {
-      data
+      data: result ? result.map((r) => r.id) : []
     }
   }
 
-  async put(ctx: any) {
-    let data = await NoteModel.update(ctx.request.body, {
-      where: {
-        lastName: null
-      }
+  async putUuid(ctx: any) {
+    const { data } = ctx.request.body
+    let state = data.map((item: any) => {
+      item.userId = item.user.id
+      return item
     })
+    let result = await NoteModel.bulkCreate(state, { updateOnDuplicate: ['title', 'content', 'userId'] })
     return {
-      data
+      data: result ? result.map((r) => r.id) : []
     }
   }
 }

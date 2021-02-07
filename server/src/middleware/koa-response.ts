@@ -11,7 +11,10 @@ export const koaResponse: MiddleWare = () => async (ctx, next) => {
     result.message = res.message || 'success'
     result.data = isPlainObject(res.data) ? [res.data] : res.data
     result.meta = res.meta
-  } catch (err) {}
-  ctx.status = statusCode
-  ctx.body = result
+  } catch (err) {
+    ctx.status = 400
+    ctx.body = err
+  }
+  ctx.status = statusCode || ctx.status
+  ctx.body = ctx.body || result
 }

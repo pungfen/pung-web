@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import ajax from '@/ajax'
 import FlexBox from '@/options/components/project/flex-box'
 
 export default {
@@ -39,6 +40,10 @@ export default {
         data: Array(30).fill({ date: '2021-1-22', content: '哈哈江哈斯的卡上打开链接啥的' })
       }
     }
+  },
+
+  created() {
+    // console.log(ajax)
   }
 }
 </script>

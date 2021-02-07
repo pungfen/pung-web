@@ -11,7 +11,7 @@ import ResizeObserver from 'resize-observer-polyfill'
 
 // ro.observe(document.querySelector('#flex-box'))
 export default {
-  props: ['height'],
+  // props: ['height'],
   emits: ['update:height'],
 
   data() {
@@ -35,9 +35,9 @@ export default {
 
         this.height = height
 
-        console.log('Element:', entry.target)
-        console.log(`Element's size: ${width}px x ${height}px`)
-        console.log(`Element's paddings: ${top}px ; ${left}px`)
+        // console.log('Element:', entry.target)
+        // console.log(`Element's size: ${width}px x ${height}px`)
+        // console.log(`Element's paddings: ${top}px ; ${left}px`)
       }
     })
     ro.observe(this.$el)

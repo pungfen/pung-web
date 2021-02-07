@@ -16,10 +16,11 @@ router.get('/test-connect', () => {
 
 const api = {
   'GET /user': {},
-  'GET /user/:id': {},
   'POST /user': {},
   'GET /note': {},
-  'POST /note': {}
+  'GET /note/:uuid': {},
+  'POST /note/:uuid': {},
+  'PUT /note/:uuid': {}
 }
 
 const matchControllerWithPath = (path: string) => {
@@ -27,10 +28,18 @@ const matchControllerWithPath = (path: string) => {
   return key.substring(0, 1).toUpperCase() + key.substring(1)
 }
 
+const matchMethodWithPathAndVerb = (path: string, verb: string) => {
+  let methodName = verb
+  path.split('/').forEach((item) => {
+    if (item.startsWith(':')) methodName += path2PascalCaseCached('/' + item.substring(1))
+  })
+  return methodName
+}
+
 Object.entries(api).forEach(([route, options]) => {
   let [httpVerb, path] = route.split(' ')
   httpVerb = httpVerb.toLowerCase()
-  const method = controller[matchControllerWithPath(path)][`${httpVerb}`] || controller[matchControllerWithPath(path)][`${httpVerb}${path2PascalCaseCached(path)}`]
+  const method = controller[matchControllerWithPath(path)][matchMethodWithPathAndVerb(path, httpVerb)] || controller[matchControllerWithPath(path)][`${httpVerb}${path2PascalCaseCached(path)}`]
   router[httpVerb](path, method)
 })
 

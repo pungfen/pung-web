@@ -6,7 +6,7 @@ const { root, password, host, scheme } = config.db
 const define = {
   timeestamps: true,
   paranoid: true,
-  underscored: true,
+  underscored: false,
   charset: 'utf8',
   freezeTableName: true
 }
@@ -18,7 +18,7 @@ const pool = {
   idle: 10000
 }
 
-export const sequelize = new Sequelize(scheme, root, password, { host, dialect: 'mysql', define, pool })
+export const sequelize = new Sequelize(scheme, root, password, { host, dialect: 'mysql', define, pool, timezone: '+08:00' })
 
 sequelize
   .authenticate()

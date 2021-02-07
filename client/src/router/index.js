@@ -6,7 +6,7 @@ const routes = [
     component: () => import('@/views/note')
   },
   {
-    path: '/note/:user',
+    path: '/note/:uuid',
     component: () => import('@/views/note/edit')
   }
 ]

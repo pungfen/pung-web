@@ -25,7 +25,7 @@ export const UserModel = sequelize.define<UserInstance>('User', {
   }
 })
 
-const attributes = ['id', 'name', 'uuid']
+const attributes = ['id', 'name', 'uuid', 'createdAt', 'updatedAt']
 
 export default class User {
   async get(ctx: any) {

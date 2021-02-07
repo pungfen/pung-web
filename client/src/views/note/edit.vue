@@ -4,7 +4,7 @@
       <template #header>
         <div>
           <span>Note</span>
-          <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+          <el-button style="float: right; padding: 3px 0" type="text" @click="submit">保存</el-button>
         </div>
       </template>
       <div>
@@ -26,14 +26,25 @@ export default {
     }
   },
 
-  created() {
-    const { user } = this.$router.currentRoute.value.params
-    if (user) {
-      console.log(user)
+  methods: {
+    getData() {
+      const { uuid } = this.$router.currentRoute.value.params
+      if (!uuid) return
+      ajax.getNoteUuid(uuid).then((res) => {
+        if (res.data.length) this.data = res.data[0]
+      })
+    },
+
+    submit() {
+      const data = this.data
+      const { uuid } = this.$router.currentRoute.value.params
+      const polling = data.id ? ajax.putNoteUuid : ajax.postNoteUuid
+      return polling(uuid, [data]).then(this.getData)
     }
-    ajax.get('/note', { params: { uuid: 'pung' } }).then((res) => {
-      this.data = res.data.length && res.data[0]
-    })
+  },
+
+  created() {
+    this.getData()
   }
 }
 </script>

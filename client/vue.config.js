@@ -1,6 +1,6 @@
 module.exports = () => {
   const config = {
-    lintOnSave: true,
+    lintOnSave: process.env.NODE_ENV !== 'production',
     devServer: {
       port: '8088',
       proxy: 'http://localhost:3001'
