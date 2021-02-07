@@ -1,7 +1,7 @@
 import { Model, DataTypes } from 'sequelize'
 import { sequelize } from '../config'
 
-import { UserModel } from './user'
+import User, { UserModel } from './user'
 
 interface NoteInstance extends Model {
   id: number
@@ -31,17 +31,25 @@ NoteModel.belongsTo(UserModel, { as: 'user', foreignKey: { allowNull: false } })
 const attributes = ['id', 'title', 'content', 'createdAt', 'updatedAt']
 export default class Note {
   async get(ctx: any) {
-    const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
-    const result = await NoteModel.findAndCountAll({
-      attributes,
-      limit: pageSize,
-      offset: pageSize * (pageCurrent - 1),
-      include: {
-        model: UserModel,
-        as: 'user',
-        attributes: ['id', 'name', 'uuid']
-      }
-    })
+    const { pageSize = 20, pageCurrent = 1, uuid } = ctx.query
+
+    let result: any = { rows: [], count: 0 }
+    const user = await UserModel.findOne({ where: { uuid } })
+    if (user) {
+      result = await NoteModel.findAndCountAll({
+        limit: pageSize,
+        offset: pageSize * (pageCurrent - 1),
+        where: {
+          userId: user.id
+        },
+        include: {
+          model: UserModel,
+          as: 'user',
+          attributes: ['id', 'name', 'uuid']
+        },
+        attributes
+      })
+    }
     const { rows, count } = result
     return { data: rows, meta: { count, pageCurrent, pageSize } }
   }
