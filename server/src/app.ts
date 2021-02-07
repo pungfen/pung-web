@@ -5,7 +5,7 @@ import * as bodyparser from 'koa-bodyparser'
 import { config } from './config'
 import { router, routes } from './router'
 
-import { koaResponse } from './middleware/koa-response'
+import { koaResponse } from './middleware'
 
 const start = () =>
   new Promise<void>(async (resolve, reject) => {

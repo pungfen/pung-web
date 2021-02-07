@@ -1,15 +1,11 @@
 import { Model, DataTypes } from 'sequelize'
-
-import sequelize from '../database'
-
-import { Controller, GET, POST, DELETE } from '../util/reflect'
+import { sequelize } from '../config'
 
 interface UserInstance extends Model {
   id: number
   name: string
   uuid: string
   password: string
-  isdeleted: string
 }
 
 export const UserModel = sequelize.define<UserInstance>('User', {
@@ -26,29 +22,15 @@ export const UserModel = sequelize.define<UserInstance>('User', {
   },
   password: {
     type: DataTypes.STRING
-  },
-  isdeleted: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false
-  }
-})
-
-// UserModel.sync()
-
-UserModel.addScope('unDeleted', {
-  where: {
-    isdeleted: 0
   }
 })
 
 const attributes = ['id', 'name', 'uuid']
 
-@Controller('/user')
 export default class User {
-  @GET('/')
   async get(ctx: any) {
     const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
-    const result = await UserModel.scope('unDeleted').findAndCountAll({
+    const result = await UserModel.findAndCountAll({
       attributes,
       limit: pageSize,
       offset: pageSize * (pageCurrent - 1)
@@ -57,7 +39,6 @@ export default class User {
     return { data: rows, meta: { count, pageCurrent, pageSize } }
   }
 
-  @POST('/')
   async post(ctx: any) {
     let user = await UserModel.create(ctx.request.body)
     return {
@@ -65,7 +46,6 @@ export default class User {
     }
   }
 
-  @DELETE('/:id')
   async delete(ctx: any) {
     const { id } = ctx.params
     if (!id) return { code: 400 }

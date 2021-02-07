@@ -7,3 +7,5 @@ export const config = {
     scheme: 'pung_web'
   }
 }
+
+export * from './sequelize'

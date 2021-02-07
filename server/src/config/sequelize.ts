@@ -1,5 +1,4 @@
-import { Sequelize } from 'sequelize-typescript'
-
+import { Sequelize } from 'sequelize'
 import { config } from './index'
 
 const { root, password, host, scheme } = config.db
@@ -19,9 +18,7 @@ const pool = {
   idle: 10000
 }
 
-const modelPaths = [__dirname + '/models']
-
-const sequelize = new Sequelize(scheme, root, password, { host, dialect: 'mysql', define, pool, modelPaths })
+export const sequelize = new Sequelize(scheme, root, password, { host, dialect: 'mysql', define, pool })
 
 sequelize
   .authenticate()
@@ -32,7 +29,4 @@ sequelize
     console.error('数据库连接失败')
   })
 
-sequelize.sync()
-
 // export default new Sequelize('mysql://pung:pung$081214@47.114.7.50:3306/pung_web')
-export default sequelize
