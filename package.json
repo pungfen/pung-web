@@ -1,6 +1,6 @@
 {
-  "name": "pung-web-vite",
-  "version": "0.0.0",
+  "name": "pung-web",
+  "version": "1.0.0",
   "author": "pung",
   "license": "MIT",
   "private": true,
