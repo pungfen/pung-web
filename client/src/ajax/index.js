@@ -5,8 +5,6 @@ import { path2PascalCaseCached } from '@/util'
 
 // import { Message } from 'element-plus'
 
-axios.defaults.baseURL = '47.114.7.50:3001'
-
 axios.interceptors.response.use(
   res => {
     return Promise.resolve(res.data)

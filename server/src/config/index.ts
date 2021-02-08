@@ -1,5 +1,5 @@
 export const config = {
-  port: 3001,
+  port: 3000,
   db: {
     root: 'pung',
     password: 'pung$081214',
