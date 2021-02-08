@@ -3,7 +3,7 @@ module.exports = () => {
     lintOnSave: process.env.NODE_ENV !== 'production',
     devServer: {
       port: '8088',
-      proxy: 'http://localhost:3001'
+      proxy: 'http://localhost:3000'
     }
   }
 
