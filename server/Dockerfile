@@ -1,4 +1,4 @@
-FROM node:latest
+FROM registry.cn-hangzhou.aliyuncs.com/pung/node:latest
 
 COPY ./ /app
 WORKDIR /app
