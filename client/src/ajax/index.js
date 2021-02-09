@@ -5,9 +5,7 @@ import { path2PascalCaseCached } from '@/util'
 
 // import { Message } from 'element-plus'
 
-const intsance = axios.create({
-  baseURL: 'http:/47.114.7.50:3000'
-})
+const intsance = axios.create({})
 
 intsance.interceptors.response.use(
   res => {
