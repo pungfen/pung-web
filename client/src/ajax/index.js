@@ -5,9 +5,11 @@ import { path2PascalCaseCached } from '@/util'
 
 // import { Message } from 'element-plus'
 
-axios.defaults.baseURL = 'http:/47.114.7.50:3000'
+const intsance = axios.create({
+  baseURL: 'http:/47.114.7.50:3000'
+})
 
-axios.interceptors.response.use(
+intsance.interceptors.response.use(
   res => {
     return Promise.resolve(res.data)
   },
@@ -32,7 +34,7 @@ Object.entries({ proxy }).forEach(([type, routes]) => {
       })
       routerPath = routerPath.slice(0, -1)
       const params = httpVerb === 'get' || httpVerb === 'delete' ? { params: arg[index++] } : { data: arg[index++] }
-      return axios[httpVerb](routerPath, params)
+      return intsance[httpVerb](routerPath, params)
     }
   })
 })
