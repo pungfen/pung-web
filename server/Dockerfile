@@ -6,7 +6,6 @@ RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install --prefer-offline --no-audit && npm run build
 
 RUN mkdir /app
-COPY /dist /app
 
-CMD ["node", "app.js"]
+CMD ["node", "dist/app.js"]
 EXPOSE 3000
