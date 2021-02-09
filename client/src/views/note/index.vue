@@ -65,7 +65,7 @@ export default {
     },
 
     tableEditClick(row) {
-      this.$router.push({ name: 'note-uuid', params: { uuid: 'pung' } })
+      this.$router.push({ name: 'note-uuid', params: { uuid: row.user.uuid } })
     }
   },
 
