@@ -5,7 +5,7 @@ module.exports = () => {
     productionSourceMap: false,
     devServer: {
       port: '8088',
-      proxy: 'http://localhost:3000'
+      proxy: 'http://47.114.7.50:3000'
     }
   }
 
