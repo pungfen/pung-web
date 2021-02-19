@@ -7,7 +7,4 @@ import App from './App.vue'
 
 import router from './router'
 
-createApp(App)
-  .use(router)
-  .use(ElementPlus, { size: 'small' })
-  .mount('#app')
+createApp(App).use(router).use(ElementPlus, { size: 'small' }).mount('#app')

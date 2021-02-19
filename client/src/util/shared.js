@@ -1,19 +1,19 @@
 const _toString = Object.prototype.toString
 
-export const isPlainObject = obj => {
+export const isPlainObject = (obj) => {
   return _toString.call(obj) === '[object Object]'
 }
 
-const cached = fn => {
+const cached = (fn) => {
   const cache = Object.create(null)
-  return str => cache[str] || (cache[str] = fn(str))
+  return (str) => cache[str] || (cache[str] = fn(str))
 }
-const path2PascalCase = path =>
+const path2PascalCase = (path) =>
   path
     .substring(1)
     .split('/')
     .map(
-      item =>
+      (item) =>
         item
           .replace(/[^a-zA-z]/g, '')
           .substring(0, 1)

@@ -8,10 +8,10 @@ import { path2PascalCaseCached } from '@/util'
 const intsance = axios.create({})
 
 intsance.interceptors.response.use(
-  res => {
+  (res) => {
     return Promise.resolve(res.data)
   },
-  err => {
+  (err) => {
     return Promise.reject(err)
   }
 )
@@ -19,13 +19,15 @@ intsance.interceptors.response.use(
 const ajax = {}
 
 Object.entries({ proxy }).forEach(([type, routes]) => {
+  console.log(type)
   Object.entries(routes).forEach(([action, option]) => {
+    console.log(option)
     let [httpVerb, path] = action.split(' ')
     httpVerb = httpVerb.toLowerCase()
     ajax[`${httpVerb}${path2PascalCaseCached(path)}`] = (...arg) => {
       let index = 0
       let routerPath = '/api'
-      path.split('/').forEach(item => {
+      path.split('/').forEach((item) => {
         if (item.startsWith(':')) routerPath += arg[index++]
         else routerPath += item
         routerPath += '/'
