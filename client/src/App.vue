@@ -16,5 +16,12 @@ export default {
   /* text-align: center; */
   color: #2c3e50;
   /* margin-top: 60px; */
+  /* position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: auto; */
 }
 </style>

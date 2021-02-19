@@ -21,7 +21,6 @@ const ajax = {}
 Object.entries({ proxy }).forEach(([type, routes]) => {
   console.log(type)
   Object.entries(routes).forEach(([action, option]) => {
-    console.log(option)
     let [httpVerb, path] = action.split(' ')
     httpVerb = httpVerb.toLowerCase()
     ajax[`${httpVerb}${path2PascalCaseCached(path)}`] = (...arg) => {
