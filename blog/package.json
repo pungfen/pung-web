@@ -1,0 +1,12 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "pung's blog",
+  "main": "index.js",
+  "author": "pung",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "vitepress": "^0.12.2"
+  }
+}
