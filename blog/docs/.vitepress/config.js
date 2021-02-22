@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'PUNG - 请让我知道，何事美丽至此',
+  title: 'PUNG - 请让我知，何事美丽至此',
 
   description: 'It is pung blog',
 
