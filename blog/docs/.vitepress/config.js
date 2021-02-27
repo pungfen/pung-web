@@ -1,5 +1,14 @@
+const sidebar = {
+  bookmark: [
+    {
+      text: 'YARN',
+      children: [{ text: '源', link: '/bookmark/yarn/switch-mirrors' }]
+    }
+  ]
+}
+
 module.exports = {
-  title: 'PUNG - 请让我知，何事美丽至此',
+  title: 'PUNG - 我是菜鸟。',
 
   description: 'It is pung blog',
 
@@ -7,6 +16,8 @@ module.exports = {
     logo: '/logo.png',
     docsDir: 'docs',
     lastUpdated: '上次编辑',
-    sidebar: {}
+    sidebar: {
+      '/bookmark': sidebar.bookmark
+    }
   }
 }
