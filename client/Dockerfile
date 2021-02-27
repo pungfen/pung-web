@@ -1,5 +1,5 @@
 # FROM registry.cn-hangzhou.aliyuncs.com/pung/node:latest
-FROM docker.io/node:latest as builder
+FROM node:latest as builder
 COPY ./ /app
 WORKDIR /app
 RUN npm config set registry https://registry.npm.taobao.org
