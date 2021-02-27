@@ -1,19 +1,15 @@
-# FROM registry.cn-hangzhou.aliyuncs.com/pung/node:latest
-FROM node:latest as build-stage
-
-ENV PROFILE="build"
-# ENV SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/
-
-
+# build stage
+FROM node:lts-alpine as build-stage
 WORKDIR /app
-COPY ./package*.json ./
-# RUN npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass
-RUN npm config set registry https://registry.npm.taobao.org
-RUN npm install
+COPY package*.json ./
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN cnpm install
 COPY . .
-RUN npm run $PROFILE
+RUN npm run build
 
-FROM nginx
-RUN mkdir /app
-COPY --from=0 /app/dist /app
-COPY nginx.conf /etc/nginx/nginx.conf
+
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx","-g","daemon off;"]
