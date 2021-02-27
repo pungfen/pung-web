@@ -18,3 +18,9 @@ yarn save package_name --registry https://registry.npm.taobao.org/
 ```sh
 yarn config set registry https://registry.npm.taobao.org/
 ```
+
+4. 修改yarn源为官方源
+
+```sh
+yarn config set registry https://registry.yarnpkg.com
+```
