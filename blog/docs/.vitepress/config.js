@@ -3,6 +3,10 @@ const sidebar = {
     {
       text: 'YARN',
       children: [{ text: '源', link: '/bookmark/yarn/switch-mirrors' }]
+    },
+    {
+      text: 'GIT',
+      children: [{ text: 'SSH', link: '/bookmark/git/ssh-keygen' }]
     }
   ]
 }
