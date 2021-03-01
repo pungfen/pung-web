@@ -12,9 +12,9 @@ git config --global user.name "${username}"
 git config --global user.email "${email}"
 ```
 
-```tips
+::: tip
 此时，会在C:\Users\Administrator目录下生成`.gitconfig`配置文件
-```
+:::
 
 3. 生产密钥
 ``` shell
