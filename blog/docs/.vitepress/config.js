@@ -13,7 +13,7 @@ const sidebar = {
       children: [{ text: 'markdown-it-emoji', link: '/bookmark/markdown/markdown-it-emoji' }]
     }
   ],
-  article: [],
+  article: [{ text: 'webpack', link: '/article/webpack/split-chunks' }],
   web: [
     { text: '官方', link: '/web/official' },
     { text: '好看的', link: '/web/beautiful' },
@@ -23,7 +23,7 @@ const sidebar = {
 
 const nav = [
   { text: '收藏', link: '/bookmark/yarn/switch-mirrors', activeMatch: '^/bookmark/' },
-  { text: '文章', link: '/article/basics', activeMatch: '^/article/' },
+  { text: '文章', link: '/article/webpack/split-chunks', activeMatch: '^/article/' },
   { text: '网站', link: '/web/beautiful', activeMatch: '^/web' },
   { text: 'Github', link: 'https://github.com/pungfen' }
 ]
