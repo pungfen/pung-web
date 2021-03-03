@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=production tsnd --respawn dist/app.ts",
+    "start": "cross-env NODE_ENV=production tsnd --respawn dist/app.js",
     "dev": "nodemon --exec ts-node src/app.ts",
     "build": "tsc"
   },
@@ -47,10 +47,11 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-standard": "^5.0.0",
     "koa-json-error": "^3.1.2",
+    "node-notifier": "^9.0.0",
     "nodemon": "^2.0.7",
     "sequelize-typescript": "^2.0.0-beta.1",
     "ts-node": "^9.1.1",
-    "ts-node-dev": "^1.1.1",
+    "ts-node-dev": "^1.1.6",
     "typescript": "^4.1.3"
   }
 }
