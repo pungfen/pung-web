@@ -1,6 +1,5 @@
 env:
-  commonjs: true
-  es6: true
+  es2021: true
   node: true
 extends:
   - koa
@@ -9,7 +8,14 @@ globals:
   SharedArrayBuffer: readonly
 parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: 2018
+  ecmaVersion: 2021
 plugins:
   - '@typescript-eslint'
-rules: { 'comma-dangle': ['error', 'never'], semi: [0], 'arrow-parens': [0] }
+rules: {
+  'comma-dangle': ['error', 'never'],
+  semi: [0], 'arrow-parens': [0] ,
+  'space-before-function-paren': {
+    anonymous: 'never',
+    named: 'always'
+  }
+}

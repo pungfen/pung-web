@@ -8,9 +8,14 @@ export const koaResponse: MiddleWare = () => async (ctx, next) => {
   try {
     const res: any = await next()
     statusCode = res.code || 200
-    result.message = res.message || 'success'
-    result.data = isPlainObject(res.data) ? [res.data] : res.data
-    result.meta = res.meta
+    if (statusCode === 200) {
+      result.message = res.message || 'success'
+      result.data = isPlainObject(res.data) ? [res.data] : res.data
+      result.meta = res.meta
+    } else {
+      statusCode = 400
+      result.message = res.message || 'failed'
+    }
   } catch (err) {
     ctx.status = 400
     ctx.body = err

@@ -6,6 +6,6 @@
   "private": true,
   "scripts": {
     "dev:client": "cd client && yarn serve",
-    "dev:server": "cd server && yarn dev"
+    "dev:server": "cd server && npm dev"
   }
 }

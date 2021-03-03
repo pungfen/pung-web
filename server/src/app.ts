@@ -1,6 +1,8 @@
-import * as Koa from 'koa'
+import Koa from 'koa'
+
 import * as logger from 'koa-logger'
 import * as bodyparser from 'koa-bodyparser'
+import * as koaJsonError from 'koa-json-error'
 
 import { config } from './config'
 import { router, routes } from './router'
@@ -8,13 +10,14 @@ import { router, routes } from './router'
 import { koaResponse } from './middleware'
 
 const start = () =>
-  new Promise<void>(async (resolve, reject) => {
+  new Promise<void>((resolve, reject) => {
     try {
       console.info('--- start ---')
 
       const app = new Koa()
 
       app.use(logger())
+      app.use(koaJsonError({}))
       app.use(
         bodyparser({
           onerror: (err, ctx) => {

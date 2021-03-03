@@ -57,6 +57,7 @@ export default class Note {
   async getUuid(ctx: any) {
     const { pageSize = 20, pageCurrent = 1 } = ctx.request.body
     const { uuid } = ctx.request.params
+    if (!uuid) return { statusCode: 400, message: '请传入正确的uuid' }
     const [user, created] = await UserModel.findOrCreate({
       where: { uuid },
       defaults: { uuid }

@@ -18,7 +18,6 @@
       "program": "${workspaceFolder}/server/src/app.ts",
       "runtimeExecutable": "nodemon",
       "restart": true,
-      // "console": "integratedTerminal",
       "skipFiles": ["${workspaceRoot}/node_modules/**/*.js", "<node_internals>/**/*.js"]
     }
   ]

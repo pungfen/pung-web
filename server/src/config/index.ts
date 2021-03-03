@@ -1,11 +1,22 @@
-export const config = {
-  port: 3000,
-  db: {
-    root: 'root',
-    password: 'root',
-    host: '47.114.7.50',
-    scheme: 'pung_web'
-  }
-}
+export const config =
+  process.env.NODE_ENV === 'production'
+    ? {
+        port: 3000,
+        db: {
+          root: 'pung',
+          password: 'pung$081214',
+          host: 'pung-rds.mysql.rds.aliyuncs.com',
+          scheme: 'pung_web'
+        }
+      }
+    : {
+        port: 3000,
+        db: {
+          root: 'pung',
+          password: 'pung$081214',
+          host: 'rm-bp14i1nrqrt558j68mo.mysql.rds.aliyuncs.com',
+          scheme: 'pung_web_test'
+        }
+      }
 
 export * from './sequelize'
